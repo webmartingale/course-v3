@@ -7,6 +7,12 @@
 from exp.nb_02 import *
 import torch.nn.functional as F
 
+def get_data():
+    path = Config().data_path()/'mnist'
+    with gzip.open(path/'mnist.pkl.gz', 'rb') as f:
+        ((x_train, y_train), (x_valid, y_valid), _) = pickle.load(f, encoding='latin-1')
+    return map(tensor, (x_train,y_train,x_valid,y_valid))
+
 def accuracy(out, yb): return (torch.argmax(out, dim=1)==yb).float().mean()
 
 from torch import optim

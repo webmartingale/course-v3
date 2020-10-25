@@ -19,6 +19,7 @@ from fastai import datasets
 import pickle, gzip, math, torch, matplotlib as mpl
 import matplotlib.pyplot as plt
 from torch import tensor
+from fastai.basics import *
 
 MNIST_URL='http://deeplearning.net/data/mnist/mnist.pkl'
 
